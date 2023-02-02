@@ -24,19 +24,24 @@ def connect_to_endpoint(url, params, tweets_extracao):
     retry = Retry(connect=3, backoff_factor=0.5)
     adapter = HTTPAdapter(max_retries=retry)
     session.mount('https://', adapter)
-    response = session.get(url, auth=bearer_oauth, params=params)
-    print(response.status_code)
-    if response.status_code != 200:
-        ficheiro = open("../tweets_dec.json", "w", encoding='utf-8')
-        json.dump(tweets_extracao, ficheiro, ensure_ascii=False, indent=4)
-        raise Exception(response.status_code, response.text)
+    max_retries = 5
+    retry_count = 0
+    while True:
+        response = session.get(url, auth=bearer_oauth, params=params)
+        if response.status_code == 200:
+            break
+        elif retry_count == max_retries:
+            raise Exception(response.status_code, response.text)
+        else:
+            retry_count += 1
+            time.sleep(5)
     return response.json()
 
 #####################################################################################################
 
 
 #tweets= open('tweetsv1.json','w',encoding='utf-8')
-doc=open('/t1.json', 'r')
+doc=open('/queries/queries_kids.json', 'r')
 db = json.load(doc)
 
 #dbFile = open("tweets_dec.json", encoding='utf-8')
@@ -50,9 +55,9 @@ count=0
 start = time.time()
 
 for key in db:
-    query_params = {'query': key[" query"],
-                    'start_time':"2022-11-01T00:00:00Z",
-                    "end_time":"2022-12-01T00:00:00Z",
+    query_params = {'query': key["query"],
+                    'start_time':"2023-01-01T00:00:00Z",
+                    "end_time":"2023-01-31T00:00:00Z",
                     "max_results":500,
                     "tweet.fields":"author_id,created_at,geo,public_metrics,attachments,entities,lang",
                     "expansions":"author_id,geo.place_id,attachments.media_keys",
@@ -110,8 +115,7 @@ for key in db:
                         "id_tweet": i["id"],
                         "query": {
                             "id":key["queryID"],
-                            "query": key[" query"],
-                            "similarity": key[" similarity"]
+                            "query": key["query"]
                         },
                         "result":i["text"],
                         "verified":data["includes"]["users"][k]["verified"],
@@ -143,9 +147,9 @@ for key in db:
         start = time.time()
         print("wi")
     while next_token_true==1:
-        query_params = {'query': key[" query"],
-                        'start_time': "2022-11-01T00:00:00Z",
-                        "end_time": "2022-12-01T00:00:00Z",
+        query_params = {'query': key["query"],
+                        'start_time':"2023-01-01T00:00:00Z",
+                        "end_time":"2023-01-31T00:00:00Z",
                         "max_results": 500,
                         "next_token": next_t,
                         "tweet.fields": "author_id,created_at,geo,public_metrics,attachments,entities,lang",
@@ -158,7 +162,6 @@ for key in db:
         count+=1
         k = 0
         time.sleep(2)
-        print(start)
         for i in data["data"]:
             if tweets_extracao.get(main_key) == None:
                 ids.append(i["id"])
@@ -203,8 +206,7 @@ for key in db:
                     "id_tweet": i["id"],
                     "query": {
                         "id": key["queryID"],
-                        "query": key[" query"],
-                        "similarity": key[" similarity"]
+                        "query": key["query"]
                     },
                     "result": i["text"],
                     "verified": data["includes"]["users"][k]["verified"],
@@ -244,5 +246,5 @@ for key in db:
             start = time.time()
         '''
 
-#ficheiro=open("tweets_dec.json","w")
-#json.dump(tweets_extracao, ficheiro, ensure_ascii=False, indent=4)
+ficheiro = open("../tweets_db.json", "w", encoding='utf-8')
+json.dump(tweets_extracao, ficheiro, ensure_ascii=False, indent=4)
