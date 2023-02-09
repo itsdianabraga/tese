@@ -106,7 +106,7 @@ for key in db:
                     local=None
                 if i.get("entities") is not None:
                     h= i.get("entities")
-                    context=i.get("annotations")
+                    context=h.get("annotations")
                     h= h.get("urls")
                 else:
                     h=None
@@ -197,7 +197,7 @@ for key in db:
                 main_key = i["id"]
                 if i.get("entities") is not None:
                     h = i.get("entities")
-                    context = i.get("annotations")
+                    context = h.get("annotations")
                     h = h.get("urls")
                 else:
                     h = None
