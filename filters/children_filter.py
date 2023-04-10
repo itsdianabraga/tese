@@ -19,6 +19,8 @@ c = a.similarity(b)
 
 print(c)
 
+time.sleep(50)
+
 '''
 for key, value in tweets_extracao.items():
     i=re.search(r'(\b(kid|child|girl|boy|baby|teenager|youngster|children|infant|adolescent|juvenile|minor|kiddie|youth)\b)',value["result"])

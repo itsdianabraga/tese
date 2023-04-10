@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-import re
 
 import requests
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 import json
 import time
+import re
 
 
 #----------------------------------CONNECTION TO TWITTER API--------------------------------------------------------------------------
@@ -41,29 +41,25 @@ def connect_to_endpoint(url, params, tweets_extracao):
 
 
 #tweets= open('tweetsv1.json','w',encoding='utf-8')
-doc=open('/queries/queries_kids.json', 'r')
+doc=open('C:/Users/diana/PycharmProjects/thesis/queries/queries_kids_total.json', 'r')
 db = json.load(doc)
 
-#dbFile = open("tweets_dec.json", encoding='utf-8')
-#tweets_extracao = json.load(dbFile)
-
-
-tweets_extracao= {}
-ids=[]
+tweets_extracao= {} #dicionario c os tweets extraídos
+ids=[] #controlo dos ids
 info_media= []
-next_token_true=0
+next_token_true=0 #controlo do next token
 count=0
 start = time.time()
 
 for key in db:
     query_params = {'query': key["query"],
-                    'start_time':"2023-01-01T00:00:00Z",
-                    "end_time":"2023-01-31T00:00:00Z",
+                    'start_time':"2023-04-08T00:00:00Z",
+                    "end_time":"2023-04-09T00:00:00Z",
                     "max_results":500,
                     "tweet.fields":"author_id,created_at,geo,public_metrics,attachments,entities,lang",
-                    "expansions":"author_id,geo.place_id,attachments.media_keys",
+                    "expansions":"author_id,geo.place_id,attachments.media_keys,referenced_tweets.id.author_id",
                     "media.fields":"url",
-                    "user.fields":"name,location,verified"}
+                    "user.fields":"username,name,location,verified"}
     print(key["queryID"])
     json_response = connect_to_endpoint(search_url, query_params, tweets_extracao)
     data = json.dumps(json_response, indent=4, sort_keys=True)
@@ -71,10 +67,10 @@ for key in db:
     count+=1
     k=-1
     time.sleep(2)
-    if data["meta"]["result_count"]>0:
+    if data["meta"]["result_count"]>0: #se houver tweets no pedido
         for i in data["data"]:
             main_key = i["id"]
-            if tweets_extracao.get(main_key) == None:
+            if main_key not in ids:
                 ids.append(i["id"])
                 if i.get("attachments") is not None:
                     m = i.get("attachments")
@@ -100,6 +96,7 @@ for key in db:
                 for p in range(len(data["includes"]["users"])):
                     if data["includes"]["users"][p]["id"]==i["author_id"]:
                         k=p
+                        username=data["includes"]["users"][p]["username"]
                         break
                 if data["includes"]["users"][k].get("location") is not None:
                     local=data["includes"]["users"][k].get("location")
@@ -112,23 +109,54 @@ for key in db:
                 else:
                     h=None
                     context=None
-                tweets_extracao[main_key]={
+                resultado = i["text"]
+                n_original= re.sub(r'\n',r' ', resultado)
+                n= re.search(r'^(.+?)(?=\s+https?://)', n_original)
+                if n:
+                    id=n.group(1)
+                else:
+                    id=n_original
+                if id in tweets_extracao:
+                    users = tweets_extracao[id]["metadata"]["iduser"]
+                    if isinstance(users, list):
+                        if username not in users:
+                            users.append(username)
+                            us = users
+                            tweets_extracao[id]["metadata"]["mentions"] = int(tweets_extracao[id]["metadata"]["mentions"]) + 1
+                    elif users != username:
+                        us = []
+                        us.append(tweets_extracao[id]["metadata"]["iduser"])
+                        us.append(username)
+                        tweets_extracao[id]["metadata"]["mentions"] = int(tweets_extracao[id]["metadata"]["mentions"]) + 1
+                    else:
+                        us=tweets_extracao[id]["metadata"]["iduser"]
+                    tweets_extracao[id]["metadata"]["iduser"] = us
+                    #if isinstance(us,list):
+                    #    tweets_extracao[id]["metadata"]["mentions"]=len(us)
+                    tweets_extracao[id]["metadata"]["public_metrics"]["impression_count"] = tweets_extracao[id]["metadata"]["public_metrics"]["impression_count"] + i["public_metrics"]["impression_count"]
+                    tweets_extracao[id]["metadata"]["public_metrics"]["like_count"] = tweets_extracao[id]["metadata"]["public_metrics"]["like_count"] + i["public_metrics"]["like_count"]
+                    tweets_extracao[id]["metadata"]["public_metrics"]["quote_count"] = tweets_extracao[id]["metadata"]["public_metrics"]["quote_count"] + i["public_metrics"]["quote_count"]
+                    tweets_extracao[id]["metadata"]["public_metrics"]["reply_count"] = tweets_extracao[id]["metadata"]["public_metrics"]["reply_count"] + i["public_metrics"]["reply_count"]
+                    tweets_extracao[id]["metadata"]["public_metrics"]["retweet_count"] = tweets_extracao[id]["metadata"]["public_metrics"]["retweet_count"] + i["public_metrics"]["retweet_count"]
+                else:
+                    tweets_extracao[id] = {
                         "id_tweet": i["id"],
                         "query": {
-                            "id":key["queryID"],
+                            "id": key["queryID"],
                             "query": key["query"]
                         },
-                        "result":i["text"],
-                        "verified":data["includes"]["users"][k]["verified"],
+                        "result": i["text"],
+                        "verified": data["includes"]["users"][k]["verified"],
                         "metadata": {
-                            "iduser":i["author_id"],
-                            "lang":i["lang"],
-                            "location":local,
+                            "iduser": username,
+                            "mentions": 0,
+                            "lang": i["lang"],
+                            "location": local,
                             "links": h,
-                            "media":info_media,
-                            "context":context,
-                            "public_metrics":i["public_metrics"]
-                            }
+                            "media": info_media,
+                            "context": context,
+                            "public_metrics": i["public_metrics"]
+                        }
                     }
                 procura_media=[]
                 info_media=[]
@@ -146,11 +174,10 @@ for key in db:
         f = count % 300
         time.sleep(f * 3)
         start = time.time()
-        print("wi")
     while next_token_true==1:
         query_params = {'query': key["query"],
-                        'start_time':"2023-01-01T00:00:00Z",
-                        "end_time":"2023-01-31T00:00:00Z",
+                        'start_time':"2023-04-08T00:00:00Z",
+                        "end_time":"2023-04-09T00:00:00Z",
                         "max_results": 500,
                         "next_token": next_t,
                         "tweet.fields": "author_id,created_at,geo,public_metrics,attachments,entities,lang",
@@ -164,7 +191,7 @@ for key in db:
         k = 0
         time.sleep(2)
         for i in data["data"]:
-            if tweets_extracao.get(main_key) == None:
+            if i["id"] not in ids:
                 ids.append(i["id"])
                 if i.get("attachments") is not None:
                     m = i.get("attachments")
@@ -190,6 +217,7 @@ for key in db:
                 for p in range(len(data["includes"]["users"])):
                     if data["includes"]["users"][p]["id"] == i["author_id"]:
                         k = p
+                        username=data["includes"]["users"][p]["username"]
                         break
                 if data["includes"]["users"][k].get("location") is not None:
                     local = data["includes"]["users"][k].get("location")
@@ -203,23 +231,53 @@ for key in db:
                 else:
                     h = None
                     context = None
-                tweets_extracao[main_key] = {
-                    "id_tweet": i["id"],
-                    "query": {
-                        "id": key["queryID"],
-                        "query": key["query"]
-                    },
-                    "result": i["text"],
-                    "verified": data["includes"]["users"][k]["verified"],
-                    "metadata": {
-                        "iduser": i["author_id"],
-                        "lang": i["lang"],
-                        "location": local,
-                        "links": h,
-                        "media": info_media,
-                        "public_metrics": i["public_metrics"]
+                resultado = i["text"]
+                n_original = re.sub(r'\n', r' ', resultado)
+                n = re.search(r'^(.+?)(?=\s+https?://)', n_original)
+                if n:
+                    id = n.group(1)
+                else:
+                    id = n_original
+                if id in tweets_extracao:
+                    users = tweets_extracao[id]["metadata"]["iduser"]
+                    if isinstance(users, list):
+                        if username not in users:
+                            users.append(username)
+                            us = users
+                            tweets_extracao[id]["metadata"]["mentions"] = int(tweets_extracao[id]["metadata"]["mentions"]) + 1
+                    elif users != username:
+                        us = []
+                        us.append(tweets_extracao[id]["metadata"]["iduser"])
+                        us.append(username)
+                        tweets_extracao[id]["metadata"]["mentions"] = int(tweets_extracao[id]["metadata"]["mentions"]) + 1
+                    else:
+                        us = tweets_extracao[id]["metadata"]["iduser"]
+                    tweets_extracao[id]["metadata"]["iduser"] = us
+                    tweets_extracao[id]["metadata"]["public_metrics"]["impression_count"]=tweets_extracao[id]["metadata"]["public_metrics"]["impression_count"]+i["public_metrics"]["impression_count"]
+                    tweets_extracao[id]["metadata"]["public_metrics"]["like_count"]=tweets_extracao[id]["metadata"]["public_metrics"]["like_count"]+i["public_metrics"]["like_count"]
+                    tweets_extracao[id]["metadata"]["public_metrics"]["quote_count"]=tweets_extracao[id]["metadata"]["public_metrics"]["quote_count"]+i["public_metrics"]["quote_count"]
+                    tweets_extracao[id]["metadata"]["public_metrics"]["reply_count"]=tweets_extracao[id]["metadata"]["public_metrics"]["reply_count"]+i["public_metrics"]["reply_count"]
+                    tweets_extracao[id]["metadata"]["public_metrics"]["retweet_count"]=tweets_extracao[id]["metadata"]["public_metrics"]["retweet_count"]+i["public_metrics"]["retweet_count"]
+                else:
+                    tweets_extracao[id] = {
+                        "id_tweet": i["id"],
+                        "query": {
+                            "id": key["queryID"],
+                            "query": key["query"]
+                        },
+                        "result": i["text"],
+                        "verified": data["includes"]["users"][k]["verified"],
+                        "metadata": {
+                            "iduser": username,
+                            "mentions": 0,
+                            "lang": i["lang"],
+                            "location": local,
+                            "links": h,
+                            "media": info_media,
+                            "context": context,
+                            "public_metrics": i["public_metrics"]
+                        }
                     }
-                }
                 info_media = []
         if data["meta"].get("next_token") is not None:
             next_t=data["meta"].get("next_token")
@@ -235,17 +293,7 @@ for key in db:
             f = count % 300
             time.sleep(f*3)
             start=time.time()
-        '''
-        if count % 298 == 0:
-            end = time.time()
-            diferenca = end - start
-            print("vou descansar")
-            if diferenca > 900:
-                time.sleep(15)
-            else:
-                time.sleep(915 - diferenca)
-            start = time.time()
-        '''
 
-ficheiro = open("../tweets_db.json", "w", encoding='utf-8')
+
+ficheiro = open("../tweets_april.json", "w", encoding='utf-8')
 json.dump(tweets_extracao, ficheiro, ensure_ascii=False, indent=4)
