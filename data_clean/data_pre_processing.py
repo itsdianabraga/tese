@@ -33,10 +33,17 @@ from tweepy import OAuthHandler
 from textblob import TextBlob
 from spacy.lang.en.stop_words import STOP_WORDS
 
-dbFile = open("tweets_db_clean.json", encoding='utf-8')
+dbFile = open("tweets_april.json", encoding='utf-8')
 tweets_extracao = json.load(dbFile)
 tweets_extracao1 = {}
 nlp = spacy.blank("en")
+
+from nltk.stem import PorterStemmer
+from nltk.stem import WordNetLemmatizer
+
+ps = PorterStemmer()
+wn = WordNetLemmatizer()
+
 
 #definição de variáveis de limpeza
 REGX_USERNAME = r"@[A-Za-z0-9$-_@.&+]+"
@@ -77,8 +84,15 @@ for key, value in tweets_extracao.items():
               len(t) > 3]
 
     tokens = [t for t in tokens if not t.isdigit()]
+
+    stemmed_tokens = [ps.stem(token) for token in tokens]
+
+    lemmatized_tokens = [wn.lemmatize(token) for token in stemmed_tokens]
+
     print(tweet)
     print(tokens)
+    print(stemmed_tokens)
+    print(lemmatized_tokens)
 
     #test
     if i==100:

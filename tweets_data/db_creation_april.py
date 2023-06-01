@@ -24,14 +24,14 @@ def connect_to_endpoint(url, params, tweets_extracao):
     retry = Retry(connect=3, backoff_factor=0.5)
     adapter = HTTPAdapter(max_retries=retry)
     session.mount('https://', adapter)
-    max_retries = 5
+    max_retries = 90
     retry_count = 0
     while True:
         response = session.get(url, auth=bearer_oauth, params=params)
         if response.status_code == 200:
             break
         elif retry_count == max_retries:
-            raise Exception(response.status_code, response.text)
+            time.sleep(90)
         else:
             retry_count += 1
             time.sleep(5)
@@ -41,7 +41,7 @@ def connect_to_endpoint(url, params, tweets_extracao):
 
 
 #tweets= open('tweetsv1.json','w',encoding='utf-8')
-doc=open('C:/Users/diana/PycharmProjects/thesis/queries/queries_kids_total.json', 'r')
+doc=open('C:/Users/diana/PycharmProjects/thesis/queries/queries_abril.json', 'r')
 db = json.load(doc)
 
 tweets_extracao= {} #dicionario c os tweets extraídos
@@ -49,27 +49,27 @@ ids=[] #controlo dos ids
 info_media= []
 next_token_true=0 #controlo do next token
 count=0
-start = time.time()
+start = time.time() #controlo dos limites da API twitter
 
 for key in db:
     query_params = {'query': key["query"],
-                    'start_time':"2023-04-08T00:00:00Z",
-                    "end_time":"2023-04-09T00:00:00Z",
+                    'start_time':"2023-04-25T00:00:00Z",
+                    "end_time":"2023-04-26T00:00:00Z",
                     "max_results":500,
                     "tweet.fields":"author_id,created_at,geo,public_metrics,attachments,entities,lang",
                     "expansions":"author_id,geo.place_id,attachments.media_keys,referenced_tweets.id.author_id",
                     "media.fields":"url",
-                    "user.fields":"username,name,location,verified"}
+                    "user.fields":"username,name,location,verified,profile_image_url"}
     print(key["queryID"])
     json_response = connect_to_endpoint(search_url, query_params, tweets_extracao)
     data = json.dumps(json_response, indent=4, sort_keys=True)
     data = json.loads(data)
     count+=1
     k=-1
-    time.sleep(2)
+    #time.sleep(2)
     if data["meta"]["result_count"]>0: #se houver tweets no pedido
         for i in data["data"]:
-            main_key = i["id"]
+            main_key = i["id"] #main_key do twitter
             if main_key not in ids:
                 ids.append(i["id"])
                 if i.get("attachments") is not None:
@@ -97,7 +97,13 @@ for key in db:
                     if data["includes"]["users"][p]["id"]==i["author_id"]:
                         k=p
                         username=data["includes"]["users"][p]["username"]
+                        name=data["includes"]["users"][p]["name"]
+                        profile_photo=data["includes"]["users"][p]["profile_image_url"]
                         break
+                if data["includes"]["users"][k]["verified"] is True:
+                    pontuacao=20
+                else:
+                    pontuacao=1
                 if data["includes"]["users"][k].get("location") is not None:
                     local=data["includes"]["users"][k].get("location")
                 else:
@@ -117,20 +123,28 @@ for key in db:
                 else:
                     id=n_original
                 if id in tweets_extracao:
-                    users = tweets_extracao[id]["metadata"]["iduser"]
+                    users = tweets_extracao[id]["user"]["username"]
                     if isinstance(users, list):
                         if username not in users:
                             users.append(username)
                             us = users
-                            tweets_extracao[id]["metadata"]["mentions"] = int(tweets_extracao[id]["metadata"]["mentions"]) + 1
+                            if data["includes"]["users"][k]["verified"] is True:
+                                tweets_extracao[id]["metadata"]["pontuation_mentions"] = int(tweets_extracao[id]["metadata"]["pontuation_mentions"]) + 20
+                            else:
+                                tweets_extracao[id]["metadata"]["pontuation_mentions"] = int(tweets_extracao[id]["metadata"]["pontuation_mentions"]) + 1
                     elif users != username:
                         us = []
-                        us.append(tweets_extracao[id]["metadata"]["iduser"])
+                        us.append(tweets_extracao[id]["user"]["username"])
                         us.append(username)
-                        tweets_extracao[id]["metadata"]["mentions"] = int(tweets_extracao[id]["metadata"]["mentions"]) + 1
+                        if data["includes"]["users"][k]["verified"] is True:
+                            tweets_extracao[id]["metadata"]["pontuation_mentions"] = int(
+                                tweets_extracao[id]["metadata"]["pontuation_mentions"]) + 20
+                        else:
+                            tweets_extracao[id]["metadata"]["pontuation_mentions"] = int(
+                                tweets_extracao[id]["metadata"]["pontuation_mentions"]) + 1
                     else:
-                        us=tweets_extracao[id]["metadata"]["iduser"]
-                    tweets_extracao[id]["metadata"]["iduser"] = us
+                        us=tweets_extracao[id]["user"]["username"]
+                    tweets_extracao[id]["user"]["username"] = us
                     #if isinstance(us,list):
                     #    tweets_extracao[id]["metadata"]["mentions"]=len(us)
                     tweets_extracao[id]["metadata"]["public_metrics"]["impression_count"] = tweets_extracao[id]["metadata"]["public_metrics"]["impression_count"] + i["public_metrics"]["impression_count"]
@@ -146,10 +160,14 @@ for key in db:
                             "query": key["query"]
                         },
                         "result": i["text"],
-                        "verified": data["includes"]["users"][k]["verified"],
+                        "user": {
+                            "username": username,
+                            "name": name,
+                            "verified": data["includes"]["users"][k]["verified"],
+                            "profile_photo": profile_photo
+                        },
                         "metadata": {
-                            "iduser": username,
-                            "mentions": 0,
+                            "pontuation_mentions": pontuacao,
                             "lang": i["lang"],
                             "location": local,
                             "links": h,
@@ -176,8 +194,8 @@ for key in db:
         start = time.time()
     while next_token_true==1:
         query_params = {'query': key["query"],
-                        'start_time':"2023-04-08T00:00:00Z",
-                        "end_time":"2023-04-09T00:00:00Z",
+                        'start_time':"2023-04-25T00:00:00Z",
+                        "end_time":"2023-04-26T00:00:00Z",
                         "max_results": 500,
                         "next_token": next_t,
                         "tweet.fields": "author_id,created_at,geo,public_metrics,attachments,entities,lang",
@@ -189,7 +207,6 @@ for key in db:
         data = json.loads(data)
         count+=1
         k = 0
-        time.sleep(2)
         for i in data["data"]:
             if i["id"] not in ids:
                 ids.append(i["id"])
@@ -219,6 +236,10 @@ for key in db:
                         k = p
                         username=data["includes"]["users"][p]["username"]
                         break
+                if data["includes"]["users"][k]["verified"] is True:
+                    pontuacao = 20
+                else:
+                    pontuacao = 1
                 if data["includes"]["users"][k].get("location") is not None:
                     local = data["includes"]["users"][k].get("location")
                 else:
@@ -239,25 +260,41 @@ for key in db:
                 else:
                     id = n_original
                 if id in tweets_extracao:
-                    users = tweets_extracao[id]["metadata"]["iduser"]
+                    users = tweets_extracao[id]["user"]["username"]
                     if isinstance(users, list):
                         if username not in users:
                             users.append(username)
                             us = users
-                            tweets_extracao[id]["metadata"]["mentions"] = int(tweets_extracao[id]["metadata"]["mentions"]) + 1
+                            if data["includes"]["users"][k]["verified"] is True:
+                                tweets_extracao[id]["metadata"]["pontuation_mentions"] = int(
+                                    tweets_extracao[id]["metadata"]["pontuation_mentions"]) + 20
+                            else:
+                                tweets_extracao[id]["metadata"]["pontuation_mentions"] = int(
+                                    tweets_extracao[id]["metadata"]["pontuation_mentions"]) + 1
                     elif users != username:
                         us = []
-                        us.append(tweets_extracao[id]["metadata"]["iduser"])
+                        us.append(tweets_extracao[id]["user"]["username"])
                         us.append(username)
-                        tweets_extracao[id]["metadata"]["mentions"] = int(tweets_extracao[id]["metadata"]["mentions"]) + 1
+                        if data["includes"]["users"][k]["verified"] is True:
+                            tweets_extracao[id]["metadata"]["pontuation_mentions"] = int(
+                                tweets_extracao[id]["metadata"]["pontuation_mentions"]) + 20
+                        else:
+                            tweets_extracao[id]["metadata"]["pontuation_mentions"] = int(
+                                tweets_extracao[id]["metadata"]["pontuation_mentions"]) + 1
                     else:
-                        us = tweets_extracao[id]["metadata"]["iduser"]
-                    tweets_extracao[id]["metadata"]["iduser"] = us
-                    tweets_extracao[id]["metadata"]["public_metrics"]["impression_count"]=tweets_extracao[id]["metadata"]["public_metrics"]["impression_count"]+i["public_metrics"]["impression_count"]
-                    tweets_extracao[id]["metadata"]["public_metrics"]["like_count"]=tweets_extracao[id]["metadata"]["public_metrics"]["like_count"]+i["public_metrics"]["like_count"]
-                    tweets_extracao[id]["metadata"]["public_metrics"]["quote_count"]=tweets_extracao[id]["metadata"]["public_metrics"]["quote_count"]+i["public_metrics"]["quote_count"]
-                    tweets_extracao[id]["metadata"]["public_metrics"]["reply_count"]=tweets_extracao[id]["metadata"]["public_metrics"]["reply_count"]+i["public_metrics"]["reply_count"]
-                    tweets_extracao[id]["metadata"]["public_metrics"]["retweet_count"]=tweets_extracao[id]["metadata"]["public_metrics"]["retweet_count"]+i["public_metrics"]["retweet_count"]
+                        us = tweets_extracao[id]["user"]["username"]
+                    tweets_extracao[id]["user"]["username"] = us
+                    # if isinstance(us,list):
+                    #    tweets_extracao[id]["metadata"]["mentions"]=len(us)
+                    tweets_extracao[id]["metadata"]["public_metrics"]["impression_count"] = tweets_extracao[id]["metadata"]["public_metrics"]["impression_count"] + i["public_metrics"][
+                        "impression_count"]
+                    tweets_extracao[id]["metadata"]["public_metrics"]["like_count"] = tweets_extracao[id]["metadata"]["public_metrics"]["like_count"] + i["public_metrics"]["like_count"]
+                    tweets_extracao[id]["metadata"]["public_metrics"]["quote_count"] = tweets_extracao[id]["metadata"]["public_metrics"]["quote_count"] + i["public_metrics"][
+                        "quote_count"]
+                    tweets_extracao[id]["metadata"]["public_metrics"]["reply_count"] = tweets_extracao[id]["metadata"]["public_metrics"]["reply_count"] + i["public_metrics"][
+                        "reply_count"]
+                    tweets_extracao[id]["metadata"]["public_metrics"]["retweet_count"] = tweets_extracao[id]["metadata"]["public_metrics"]["retweet_count"] + i["public_metrics"][
+                        "retweet_count"]
                 else:
                     tweets_extracao[id] = {
                         "id_tweet": i["id"],
@@ -266,10 +303,14 @@ for key in db:
                             "query": key["query"]
                         },
                         "result": i["text"],
-                        "verified": data["includes"]["users"][k]["verified"],
+                        "user": {
+                            "username": username,
+                            "name": name,
+                            "verified": data["includes"]["users"][k]["verified"],
+                            "profile_photo": profile_photo
+                        },
                         "metadata": {
-                            "iduser": username,
-                            "mentions": 0,
+                            "pontuation_mentions": pontuacao,
                             "lang": i["lang"],
                             "location": local,
                             "links": h,

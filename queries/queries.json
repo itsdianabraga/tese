@@ -1,0 +1,577 @@
+[{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce8bc"
+  },
+  "queryID": 1,
+  "query": "\"healthy habits\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce8bd"
+  },
+  "queryID": 2,
+  "query": "\"bad habits\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce8be"
+  },
+  "queryID": 3,
+  "query": "\"drug\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce8bf"
+  },
+  "queryID": 4,
+  "query": "\"smoking\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce8c0"
+  },
+  "queryID": 5,
+  "query": "\"tobacco\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce8c1"
+  },
+  "queryID": 6,
+  "query": "\"nicotine\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce8c2"
+  },
+  "queryID": 7,
+  "query": "\"addiction\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce8c3"
+  },
+  "queryID": 8,
+  "query": "\"alcohol\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce8c4"
+  },
+  "queryID": 9,
+  "query": "\"drunkenness\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce8c5"
+  },
+  "queryID": 10,
+  "query": "\"alcoholism\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce8c6"
+  },
+  "queryID": 11,
+  "query": "\"chemical dependency\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce8c7"
+  },
+  "queryID": 12,
+  "query": "\"healthy lifestyle\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce8c8"
+  },
+  "queryID": 13,
+  "query": "\"healthy life style\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce8c9"
+  },
+  "queryID": 14,
+  "query": "\"healthy life-style\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce8ca"
+  },
+  "queryID": 15,
+  "query": "\"diet\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce8cb"
+  },
+  "queryID": 16,
+  "query": "\"dieting\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce8cc"
+  },
+  "queryID": 17,
+  "query": "\"overeating\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce8cd"
+  },
+  "queryID": 18,
+  "query": "\"obesity\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce8ce"
+  },
+  "queryID": 19,
+  "query": "\"overweight\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce8cf"
+  },
+  "queryID": 20,
+  "query": "\"anorexia\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce8d0"
+  },
+  "queryID": 21,
+  "query": "\"bulimia\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce8d1"
+  },
+  "queryID": 22,
+  "query": "\"underweight\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce8d2"
+  },
+  "queryID": 23,
+  "query": "\"food\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce8d3"
+  },
+  "queryID": 24,
+  "query": "\"nutrition\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce8d4"
+  },
+  "queryID": 25,
+  "query": "\"nutriment\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce8d5"
+  },
+  "queryID": 26,
+  "query": "\"nutrient\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce8d6"
+  },
+  "queryID": 27,
+  "query": "\"nourishment\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce8d7"
+  },
+  "queryID": 28,
+  "query": "\"sustenance\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce8d8"
+  },
+  "queryID": 29,
+  "query": "\"aliment\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce8d9"
+  },
+  "queryID": 30,
+  "query": "\"alimentation\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce8da"
+  },
+  "queryID": 31,
+  "query": "\"healthy food\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce8db"
+  },
+  "queryID": 32,
+  "query": "\"physical exercise\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce8dc"
+  },
+  "queryID": 33,
+  "query": "\"exercise\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce8dd"
+  },
+  "queryID": 34,
+  "query": "\"exercising\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce8de"
+  },
+  "queryID": 35,
+  "query": "\"physical exertion\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce8df"
+  },
+  "queryID": 36,
+  "query": "\"workout\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce8e0"
+  },
+  "queryID": 37,
+  "query": "\"fitness\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce8e1"
+  },
+  "queryID": 38,
+  "query": "\"physical fitness\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce8e2"
+  },
+  "queryID": 39,
+  "query": "\"sedentary\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce8e3"
+  },
+  "queryID": 40,
+  "query": "\"inactivity\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce8e4"
+  },
+  "queryID": 41,
+  "query": "\"lack of exercise\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce8e5"
+  },
+  "queryID": 42,
+  "query": "\"procrastination\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce8e6"
+  },
+  "queryID": 43,
+  "query": "\"laziness\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce8e7"
+  },
+  "queryID": 44,
+  "query": "\"sleep quality\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce8e8"
+  },
+  "queryID": 45,
+  "query": "\"fatigue\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce8e9"
+  },
+  "queryID": 46,
+  "query": "\"insomnia\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce8ea"
+  },
+  "queryID": 47,
+  "query": "\"misinformation\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce8eb"
+  },
+  "queryID": 48,
+  "query": "\"disinformation\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce8ec"
+  },
+  "queryID": 49,
+  "query": "\"screen time\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce8ed"
+  },
+  "queryID": 50,
+  "query": "\"smartphone\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce8ee"
+  },
+  "queryID": 51,
+  "query": "\"IPhone\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce8ef"
+  },
+  "queryID": 52,
+  "query": "\"Android\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce8f0"
+  },
+  "queryID": 53,
+  "query": "\"television\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce8f1"
+  },
+  "queryID": 54,
+  "query": "\"tv\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce8f2"
+  },
+  "queryID": 55,
+  "query": "\"social media\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce8f3"
+  },
+  "queryID": 56,
+  "query": "\"noncommunicable disease\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce8f4"
+  },
+  "queryID": 57,
+  "query": "\"risk factors\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce8f5"
+  },
+  "queryID": 58,
+  "query": "\"risk behaviors\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce8f6"
+  },
+  "queryID": 59,
+  "query": "\"autism\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce8f7"
+  },
+  "queryID": 60,
+  "query": "\"ADHD\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce8f8"
+  },
+  "queryID": 61,
+  "query": "\"NCD\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce8f9"
+  },
+  "queryID": 62,
+  "query": "\"chronic disease\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce8fa"
+  },
+  "queryID": 63,
+  "query": "\"chronic respiratory disease\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce8fb"
+  },
+  "queryID": 64,
+  "query": "\"asthma\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce8fc"
+  },
+  "queryID": 65,
+  "query": "\"chronic obstructive pulmonary disease\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce8fd"
+  },
+  "queryID": 66,
+  "query": "\"COPD\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce8fe"
+  },
+  "queryID": 67,
+  "query": "\"lung cancer\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce8ff"
+  },
+  "queryID": 68,
+  "query": "\"cystic fibrosis\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce900"
+  },
+  "queryID": 69,
+  "query": "\"sleep apnea\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce901"
+  },
+  "queryID": 70,
+  "query": "\"occupational lung disease\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce902"
+  },
+  "queryID": 71,
+  "query": "\"cancer\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce903"
+  },
+  "queryID": 72,
+  "query": "\"tumor\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce904"
+  },
+  "queryID": 73,
+  "query": "\"carcinoma\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce905"
+  },
+  "queryID": 74,
+  "query": "\"melanoma\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce906"
+  },
+  "queryID": 75,
+  "query": "\"malignancy\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce907"
+  },
+  "queryID": 76,
+  "query": "\"lymphoma\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce908"
+  },
+  "queryID": 77,
+  "query": "\"malignant neoplastic disease\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce909"
+  },
+  "queryID": 78,
+  "query": "\"diabetes\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce90a"
+  },
+  "queryID": 79,
+  "query": "\"insulin-dependent\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce90b"
+  },
+  "queryID": 80,
+  "query": "\"cardiovascular disease\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce90c"
+  },
+  "queryID": 81,
+  "query": "\"heart failure\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce90d"
+  },
+  "queryID": 82,
+  "query": "\"heart muscle disease\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce90e"
+  },
+  "queryID": 83,
+  "query": "\"cardiomyopathy\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce90f"
+  },
+  "queryID": 84,
+  "query": "\"heart valve disease\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce910"
+  },
+  "queryID": 85,
+  "query": "\"pericardial disease\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce911"
+  },
+  "queryID": 86,
+  "query": "\"peripheral vascular disease\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce912"
+  },
+  "queryID": 87,
+  "query": "\"rheumatic heart disease\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce913"
+  },
+  "queryID": 88,
+  "query": "\"stroke\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce914"
+  },
+  "queryID": 89,
+  "query": "\"vascular disease\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce915"
+  },
+  "queryID": 90,
+  "query": "\"heart attack\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce916"
+  },
+  "queryID": 91,
+  "query": "\"unstable angina\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce917"
+  },
+  "queryID": 92,
+  "query": "\"high blood pressure\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce918"
+  },
+  "queryID": 93,
+  "query": "\"mental health\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce919"
+  },
+  "queryID": 94,
+  "query": "\"alzheimer\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce91a"
+  },
+  "queryID": 95,
+  "query": "\"bipolar disorder\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+},{
+  "_id": {
+    "$oid": "646e2765fc2e48f1b50ce91b"
+  },
+  "queryID": 96,
+  "query": "\"arthritis\" (\"children\" OR \"child\" OR \"kid\" OR \"youngster\" OR \"minor\" OR \"baby\" OR \"teenager\" OR \"infant\" OR \"adolescent\" OR \"juvenile\" OR \"kiddie\" OR \"youth\" OR \"pediatrics\" OR \"neonatal\") -is:retweet -is:quote -is:reply"
+}]

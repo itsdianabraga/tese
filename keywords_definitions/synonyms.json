@@ -1,13 +1,8 @@
 {
-    "vulnerability": [
-        "vulnerability",
-        "exposure"
-    ],
     "habits": [
-        "habits",
-        "substance",
+        "healthy habits",
+        "bad habits",
         "drug",
-        "abuse",
         "smoking",
         "tobacco",
         "nicotine",
@@ -18,9 +13,9 @@
         "chemical dependency"
     ],
     "lifestyle": [
-        "lifestyle",
-        "life style",
-        "life-style"
+        "healthy lifestyle",
+        "healthy life style",
+        "healthy life-style"
     ],
     "diets": [
         "diet",
@@ -41,7 +36,6 @@
         "sustenance",
         "aliment",
         "alimentation",
-        "solid food",
         "healthy food"
     ],
     "physical_exercise": [
@@ -64,8 +58,8 @@
         "insomnia"
     ],
     "internet": [
-        "internet",
-        "computer",
+        "misinformation",
+        "disinformation",
         "screen time",
         "smartphone",
         "IPhone",
@@ -74,12 +68,12 @@
         "tv",
         "social media"
     ],
-    "health": [
-        "health",
-        "wellness"
-    ],
     "noncommunicable diseases": [
         "noncommunicable disease",
+        "risk factors",
+        "risk behaviors",
+        "autism",
+        "ADHD",
         "NCD",
         "chronic disease",
         "chronic respiratory disease",
@@ -112,6 +106,9 @@
         "heart attack",
         "unstable angina",
         "high blood pressure",
-        "mental health"
+        "mental health",
+        "alzheimer",
+        "bipolar disorder",
+        "arthritis"
     ]
 }
