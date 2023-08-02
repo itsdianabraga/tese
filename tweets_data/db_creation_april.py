@@ -41,7 +41,7 @@ def connect_to_endpoint(url, params, tweets_extracao):
 
 
 #tweets= open('tweetsv1.json','w',encoding='utf-8')
-doc=open('C:/Users/diana/PycharmProjects/thesis/queries/queries_abril.json', 'r')
+doc=open('C:/Users/diana/PycharmProjects/thesis/queries/queries.json', 'r')
 db = json.load(doc)
 
 tweets_extracao= {} #dicionario c os tweets extraídos
@@ -52,9 +52,11 @@ count=0
 start = time.time() #controlo dos limites da API twitter
 
 for key in db:
+    theme = re.findall(r"\"(.*?)\"", key["query"])
+    theme = theme[0]
     query_params = {'query': key["query"],
-                    'start_time':"2023-04-25T00:00:00Z",
-                    "end_time":"2023-04-26T00:00:00Z",
+                    'start_time':"2023-6-01T00:00:00Z",
+                    "end_time":"2023-06-02T00:00:00Z",
                     "max_results":500,
                     "tweet.fields":"author_id,created_at,geo,public_metrics,attachments,entities,lang",
                     "expansions":"author_id,geo.place_id,attachments.media_keys,referenced_tweets.id.author_id",
@@ -157,7 +159,9 @@ for key in db:
                         "id_tweet": i["id"],
                         "query": {
                             "id": key["queryID"],
-                            "query": key["query"]
+                            "query": key["query"],
+                            "main_topic": key["main_topic"],
+                            "topic":theme
                         },
                         "result": i["text"],
                         "user": {
@@ -194,8 +198,8 @@ for key in db:
         start = time.time()
     while next_token_true==1:
         query_params = {'query': key["query"],
-                        'start_time':"2023-04-25T00:00:00Z",
-                        "end_time":"2023-04-26T00:00:00Z",
+                        'start_time':"2023-06-01T00:00:00Z",
+                        "end_time":"2023-06-02T00:00:00Z",
                         "max_results": 500,
                         "next_token": next_t,
                         "tweet.fields": "author_id,created_at,geo,public_metrics,attachments,entities,lang",
@@ -235,6 +239,8 @@ for key in db:
                     if data["includes"]["users"][p]["id"] == i["author_id"]:
                         k = p
                         username=data["includes"]["users"][p]["username"]
+                        name = data["includes"]["users"][p]["name"]
+                        profile_photo = data["includes"]["users"][p]["profile_image_url"]
                         break
                 if data["includes"]["users"][k]["verified"] is True:
                     pontuacao = 20
@@ -300,7 +306,9 @@ for key in db:
                         "id_tweet": i["id"],
                         "query": {
                             "id": key["queryID"],
-                            "query": key["query"]
+                            "query": key["query"],
+                            "main_topic": key["main_topic"],
+                            "topic":theme
                         },
                         "result": i["text"],
                         "user": {
@@ -336,5 +344,5 @@ for key in db:
             start=time.time()
 
 
-ficheiro = open("../tweets_april.json", "w", encoding='utf-8')
+ficheiro = open("../tweets_june.json", "w", encoding='utf-8')
 json.dump(tweets_extracao, ficheiro, ensure_ascii=False, indent=4)

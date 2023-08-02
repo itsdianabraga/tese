@@ -13,14 +13,19 @@ from textblob import TextBlob
 from spacy.lang.en.stop_words import STOP_WORDS
 from nltk.stem import PorterStemmer
 from nltk.stem import WordNetLemmatizer
-
+# SENTIMENT ANALYSIS
+from nltk import word_tokenize
+from nltk.corpus import stopwords
+from nltk.sentiment import SentimentIntensityAnalyzer
+import re
+import torch
 nlp = spacy.blank("en")
 
 #definição de variáveis de limpeza
 REGX_USERNAME = r"@[A-Za-z0-9$-_@.&+]+"
 REGX_URL = r"https?://[A-Za-z0-9./]+"
 
-doc =open('C:/Users/diana/PycharmProjects/thesis/tweets_april.json', encoding='utf-8')
+doc =open('C:/Users/diana/PycharmProjects/thesis/tweets_june.json', encoding='utf-8')
 db = json.load(doc)
 db1={}
 
@@ -28,6 +33,7 @@ API_KEY = 'AIzaSyBRh6hjazHm2lLbjwnq2imcQh61jtEb3J0'
 ps = PorterStemmer()
 wn = WordNetLemmatizer()
 translator = Translator()
+sia = SentimentIntensityAnalyzer()
 
 count=0
 
@@ -163,7 +169,6 @@ for key, value in db.items():
         #traducoes e resultados
         result=re.sub(r'&amp;','&',result)
         result = ' '.join(re.findall(r'(?:https?:\/\/|www\.)\S+|(\S+)', result))
-        print(value["id_tweet"])
         if result is not None and result != "":
             result_portugues=translate_tweet(result,value["metadata"]["lang"])
         else:
@@ -195,14 +200,17 @@ for key, value in db.items():
         tweet = re.sub(REGX_USERNAME, ' ', tweet)
         tweet = re.sub(REGX_URL, ' ', tweet)
 
-        # SENTIMENT ANALYSIS
-        analysis = TextBlob(tweet)
-        if analysis.sentiment.polarity > 0.5:
+        # Sentiment analysis
+        sentiment_scores = sia.polarity_scores(tweet)
+
+        # Interpret the sentiment scores
+        compound_score = sentiment_scores['compound']
+        if compound_score >= 0.45:
             sentimento = "Positive"
-        elif analysis.sentiment.polarity < - 0.5:
+        elif compound_score <= -0.45:
             sentimento = "Negative"
         else:
-            sentimento = 'Neutral'
+            sentimento = "Neutral"
 
         tokens = [token.text for token in nlp(tweet)]
         tokens = [t for t in tokens if
@@ -228,7 +236,9 @@ for key, value in db.items():
             "id_tweet": value["id_tweet"],
             "query": {
                 "id": value["query"]["id"],
-                "query": value["query"]["query"]
+                "query": value["query"]["query"],
+                "main_topic": value["query"]["main_topic"],
+                "topic": value["query"]["topic"]
             },
             "result": result,
             "result_pt": result_portugues,
@@ -263,5 +273,9 @@ for key, value in db.items():
         g=2
         print("deu um erro aqui!")
 
-file = open("clean_april.json", "w", encoding='utf-8')
+end= time.time()
+diferenca= end-start
+print(f"Demorei {diferenca} segundos")
+
+file = open("clean_tweets_june.json", "w", encoding='utf-8')
 json.dump(db1, file, indent=4, ensure_ascii=False)

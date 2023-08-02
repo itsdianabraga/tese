@@ -37,10 +37,11 @@ print("Neutros: ",i)
 print("Negativos: ",g)
 print("Positivos: ",h)
 '''
-
+'''
 import pymongo
 from pymongo import MongoClient
 cluster=MongoClient("mongodb+srv://diana-braga:test@cluster77.gjfoaqm.mongodb.net/?retryWrites=true&w=majority")
+print(pymongo.__version__)
 
 db = cluster["socialistening"]
 collection = db["tweets"]
@@ -272,3 +273,26 @@ new_student =[{
     }}]
 
 collection.insert_many(new_student)
+'''
+
+from pymongo import MongoClient
+import json
+
+doc =open('C:/Users/diana/PycharmProjects/thesis/statistics/output.json', encoding='utf-8')
+data = json.load(doc)
+
+# Connect to the MongoDB Atlas cluster
+client = MongoClient("mongodb+srv://diana-braga:test@cluster77.gjfoaqm.mongodb.net/?retryWrites=true&w=majority")
+
+# Access the database
+db = client['socialistening']
+
+# Access the collection
+collection = db['links']
+
+# Delete all documents in the collection
+result = collection.insert_many(data)
+
+# Close the MongoDB connection
+client.close()
+
