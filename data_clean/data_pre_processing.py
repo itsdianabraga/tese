@@ -33,7 +33,7 @@ from tweepy import OAuthHandler
 from textblob import TextBlob
 from spacy.lang.en.stop_words import STOP_WORDS
 
-dbFile = open("tweets_april.json", encoding='utf-8')
+dbFile = open("../files_txt/tweets_april.json", encoding='utf-8')
 tweets_extracao = json.load(dbFile)
 tweets_extracao1 = {}
 nlp = spacy.blank("en")

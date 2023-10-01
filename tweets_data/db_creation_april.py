@@ -10,7 +10,7 @@ import re
 
 #----------------------------------CONNECTION TO TWITTER API--------------------------------------------------------------------------
 
-bearer_token = 'AAAAAAAAAAAAAAAAAAAAAFdCiQEAAAAASlcblnjSnYEbgMIzB0Kd4SxDm6c%3D1eLJSoSTYavew0Ye0ZGMmvvrfC8SOvycnxRZvjImZtQjbgXaeX'
+bearer_token = 'AAAAAAAAAAAAAAAAAAAAAO4YcgEAAAAAcOOrgk%2BiM1ZW%2BnbcK7AjReTucFk%3DaJpjnqXa50nbsA3O4YDDmT10Zav1JGTJfNJyMBmxGVevze3gML'
 
 search_url = "https://api.twitter.com/2/tweets/search/all?"
 
@@ -28,6 +28,7 @@ def connect_to_endpoint(url, params, tweets_extracao):
     retry_count = 0
     while True:
         response = session.get(url, auth=bearer_oauth, params=params)
+        print(response)
         if response.status_code == 200:
             break
         elif retry_count == max_retries:
