@@ -115,20 +115,6 @@ def pysentimiento(text):
 
     return sentimento
 
-
-'''
-def transformer_sentiment(text):
-    results = sentiment_pipeline(text)
-
-    if results[0]['label']=="POSITIVE" and results[0]['score']>0.99:
-        sentimento=1
-    elif results[0]['label']=="NEGATIVE" and results[0]['score']>0.99:
-        sentimento=-1
-    else:
-        sentimento=0
-
-    return sentimento
-'''
 # Initialize lists to store model predictions and true labels
 textblob_predictions = []
 vader_predictions = []
