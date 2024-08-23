@@ -23,7 +23,7 @@ sia = SentimentIntensityAnalyzer()
 # Constants and regex patterns
 REGX_USERNAME = r"@[A-Za-z0-9$-_@.&+]+"
 REGX_URL = r"https?://[A-Za-z0-9./]+"
-API_KEY = 'YOUR_API_KEY_HERE'  # Replace with your actual API key
+API_KEY = 'AIzaSyBRh6hjazHm2lLbjwnq2imcQh61jtEb3J0'
 
 # Load tweets data
 with open('C:/Users/diana/PycharmProjects/thesis/tweets_june.json', encoding='utf-8') as doc:
