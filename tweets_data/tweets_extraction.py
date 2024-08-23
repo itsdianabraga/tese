@@ -6,7 +6,7 @@ from urllib3.util.retry import Retry
 import json
 import time
 import re
-
+from datetime import datetime, timedelta
 
 #----------------------------------CONNECTION TO TWITTER API--------------------------------------------------------------------------
 
@@ -52,12 +52,19 @@ next_token_true=0 #controlo do next token
 count=0
 start = time.time() #controlo dos limites da API twitter
 
+# Get the current date and time
+now = datetime.utcnow()
+
+# Calculate the start and end times
+start_time = (now - timedelta(days=1)).replace(hour=0, minute=1, second=0, microsecond=0).isoformat() + "Z"
+end_time = now.replace(hour=0, minute=0, second=0, microsecond=0).isoformat() + "Z"
+
 for key in db:
     theme = re.findall(r"\"(.*?)\"", key["query"])
     theme = theme[0]
     query_params = {'query': key["query"],
-                    'start_time':"2023-6-01T00:00:00Z",
-                    "end_time":"2023-06-02T00:00:00Z",
+                    'start_time':start_time,
+                    "end_time":end_time,
                     "max_results":500,
                     "tweet.fields":"author_id,created_at,geo,public_metrics,attachments,entities,lang",
                     "expansions":"author_id,geo.place_id,attachments.media_keys,referenced_tweets.id.author_id",
