@@ -4,6 +4,15 @@
 
 This project involves a series of scripts designed to extract, pre-process, and analyze tweets using the Twitter API. The scripts must be executed in a specific order to ensure smooth data extraction and processing. For convenience, you can use the `main.py` script to run all of the scripts in the correct order.
 
+## Usage
+
+To run the entire pipeline in the correct order, you can use the `main.py` script. This script will automatically execute `tweets_extraction.py`, `pre-processing.py`, `processing.py`, statistics python files and `mongo_db`.
+
+**How to Run:**
+```bash
+python main.py
+```
+
 ## Scripts
 
 ### 1. `tweets_extraction.py`
