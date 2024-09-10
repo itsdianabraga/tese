@@ -12,6 +12,27 @@ from nltk.stem import PorterStemmer, WordNetLemmatizer
 from nltk.sentiment import SentimentIntensityAnalyzer
 from pysentimiento import create_analyzer
 from pysentimiento.preprocessing import preprocess_tweet
+from transformers import BertTokenizer, BertForSequenceClassification, AutoTokenizer, AutoModelForSequenceClassification
+import torch
+
+tokenizer = AutoTokenizer.from_pretrained('finiteautomata/bertweet-base-sentiment-analysis')
+model = AutoModelForSequenceClassification.from_pretrained('finiteautomata/bertweet-base-sentiment-analysis')
+model.eval()
+
+def bert_sentiment(text):
+    # Tokenize and encode the text
+    inputs = tokenizer(text, padding=True, truncation=True, return_tensors="pt")
+    with torch.no_grad():
+        outputs = model(**inputs)
+        logits = outputs.logits
+
+    # Apply softmax to get probabilities
+    probs = torch.softmax(logits, dim=1)
+    sentiment_label = torch.argmax(probs, dim=1).item()
+
+    return sentiment_label
+
+sentiment_map = {0: "Negative", 1: "Neutral", 2: "Positive"}
 
 # Load SpaCy model and NLTK resources
 nlp = spacy.load("en_core_web_sm")
@@ -162,9 +183,11 @@ def process_tweets(data):
     for tweet in clean_data:
         result_en = clean_data[tweet]["result_en"]
         clean_data[tweet]['cleaned_tweet'] = preprocess_text(result_en)
+        sentiment_label=bert_sentiment(clean_data[tweet]['cleaned_tweet'])
+        clean_data[tweet]["sentiment"]=sentiment_map[sentiment_label]
+        
         if is_a_concern(result_en):
             clean_data[tweet]['question'] = True
-        
         titles = []
         descriptions = []
         matched_keywords_1 = []
@@ -220,3 +243,10 @@ def process_tweets(data):
     # Save final cleaned data to a JSON file
     with open('limpeza_june.json', 'w') as json_file:
         json.dump(clean_data_final, json_file, indent=4)
+
+if __name__ == "__main__":
+    with open('C:/Users/diana/PycharmProjects/thesis/data_clean/clean_tweets_june.json', encoding='utf-8', 'r') as file:
+        data = json.load(file)
+
+    # Process the tweets
+    process_tweets(data)
