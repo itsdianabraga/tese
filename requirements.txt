@@ -1,0 +1,11 @@
+requests
+urllib3
+spacy
+langid
+googletrans==4.0.0-rc1
+nltk
+pandas
+textblob
+pysentimiento
+transformers
+torch
