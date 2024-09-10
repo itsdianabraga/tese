@@ -4,6 +4,53 @@
 
 This project involves a series of scripts designed to extract, pre-process, and analyze tweets using the Twitter API. The scripts must be executed in a specific order to ensure smooth data extraction and processing. For convenience, you can use the `main.py` script to run all of the scripts in the correct order.
 
+## Requirements
+
+The project requires the following Python packages:
+
+- `requests`
+- `urllib3`
+- `spacy`
+- `langid`
+- `googletrans`
+- `textblob`
+- `pandas`
+- `nltk`
+- `pysentimiento`
+- `transformers`
+- `torch`
+
+For the exact versions, refer to `requirements.txt`.
+
+## Installation
+
+To set up the project environment, you need to install the required dependencies. You can do this using pip:
+
+1. Create a virtual environment (recommended):
+```bash
+python -m venv venv
+source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+```
+
+2. Install the dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+## Configuration
+
+1. **Twitter API Key:**
+   - Update the `bearer_token` in `tweets_extraction.py` with your Twitter API bearer token.
+
+2. **Google Maps API Key:**
+   - Update the `API_KEY` in `pre-processing.py` with your Google Maps API key.
+
+3. **Queries File:**
+   - Ensure `queries.json` contains the query parameters for extracting tweets.
+
+4. **File Paths:**
+   - Verify and update file paths in each script if necessary.
+
 ## Usage
 
 To run the entire pipeline in the correct order, you can use the `main.py` script. This script will automatically execute `tweets_extraction.py`, `pre-processing.py`, `processing.py`, statistics python files and `mongo_db`.
@@ -76,17 +123,23 @@ This script further processes the cleaned tweets by performing keyword matching,
 python ./data_clean/processing.py
 ```
 
-## Installation
+### 4. `each_category.py`
 
-To set up the project environment, you need to install the required dependencies. You can do this using pip:
+**Purpose:**
+This script analyzes processed tweet data to generate statistics and insights by topic. It performs clustering of tweets based on similarity, aggregates engagement metrics, calculates sentiment percentages, and provides geographical distributions. It also identifies and ranks top tweets based on various criteria and saves the results to a JSON file.
 
-1. Create a virtual environment (recommended):
+**Key Features:**
+- **Clustering:** Groups similar tweets using cosine similarity and vectorization.
+- **Engagement Metrics:** Aggregates likes, retweets, impressions, and other metrics.
+- **Sentiment Analysis:** Calculates and reports sentiment percentages.
+- **Geographical Distribution:** Maps tweet locations and calculates geographical distribution percentages.
+- **Top Results:** Ranks top tweets based on engagement and other criteria.
+
+**Usage:**
+- Ensure the processed tweets file processados_june.json is available and correctly formatted.
+- Run the script to analyze data and save results to statistics_each_new.json.
+
+**How to Run:**
 ```bash
-python -m venv venv
-source venv/bin/activate  # On Windows use `venv\Scripts\activate`
-```
-
-2. Install the dependencies:
-```bash
-pip install -r requirements.txt
+python ./statistics/each_category.py
 ```
