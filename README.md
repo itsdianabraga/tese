@@ -23,7 +23,7 @@ This project involves a series of scripts designed to extract, pre-process, and 
 
 **How to Run:**
 ```bash
-python tweets_extraction.py
+python ./tweets_data/tweets_extraction.py
 ```
 
 ### 2. `pre-processing.py`
@@ -43,5 +43,5 @@ This script processes the extracted tweets to clean and enrich the data. It perf
 
 **How to Run:**
 ```bash
-python pre-processing.py
+python ./data_clean/pre-processing.py
 
