@@ -101,11 +101,6 @@ def process_tweet(key, value):
         result = ' '.join(re.findall(r'(?:https?:\/\/|www\.)\S+|(\S+)', result))
         result_portugues = translate_tweet(result, metadata.get("lang"))
 
-        # Tweet sentiment analysis
-        sentiment_scores = sia.polarity_scores(result.lower())
-        compound_score = sentiment_scores['compound']
-        sentimento = "Positive" if compound_score >= 0.45 else "Negative" if compound_score <= -0.45 else "Neutral"
-
         # NLP Processing
         tokens = [token.text for token in nlp(result.lower())]
         tokens = [t for t in tokens if t not in STOP_WORDS and t not in string.punctuation and len(t) > 3 and not t.isdigit()]
@@ -133,7 +128,7 @@ def process_tweet(key, value):
             "result_pt": result_portugues,
             "link_tweet": link_tweet or ''.join(["https://twitter.com/t/status/", str(value["id_tweet"])]),
             "question": question,
-            "sentiment": sentimento,
+            "sentiment": None,
             "user": {
                 "username": user.get("username"),
                 "name": user.get("name"),
@@ -169,17 +164,12 @@ def main():
 
     # Initialize the processed tweets dictionary
     db1 = {}
-
-    # Start processing tweets
-    start_time = time.time()
+    
     for v, (key, value) in enumerate(db.items()):
         print(f"Processing tweet {v}...")
         processed_data = process_tweet(key, value)
         if processed_data:
             db1[key] = processed_data
-
-    # Measure and print processing time
-    end_time = time.time()
 
     # Save processed tweets to a file
     with open("clean_tweets_june.json", "w", encoding='utf-8') as file:
