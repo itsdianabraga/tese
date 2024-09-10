@@ -1,8 +1,8 @@
-# Tweet Processing and Analysis
+# Tweet Analysis Project
 
 ## Overview
 
-This project involves a series of scripts designed to extract, pre-process, and analyze tweets using the Twitter API. The scripts must be executed in a specific order to ensure smooth data extraction and processing.
+This project involves a series of scripts designed to extract, pre-process, and analyze tweets using the Twitter API. The scripts must be executed in a specific order to ensure smooth data extraction and processing. For convenience, you can use the `main.py` script to run all of the scripts in the correct order.
 
 ## Scripts
 
