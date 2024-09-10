@@ -11,7 +11,7 @@ from geopy.geocoders import Nominatim
 import spacy
 
 # Load the JSON file containing tweets data
-with open('C:/Users/diana/PycharmProjects/thesis/data_clean/clean_june.json', 'r', encoding='utf-8') as file:
+with open('C:/Users/diana/PycharmProjects/thesis/data_clean/processados_june.json', 'r', encoding='utf-8') as file:
     data = json.load(file)
 
 # Function to cluster tweets based on cosine similarity
