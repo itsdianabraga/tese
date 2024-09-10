@@ -60,6 +60,7 @@ This script further processes the cleaned tweets by performing keyword matching,
 
 **Usage:**
 - Ensure the `clean_tweets_june.json` file is available and correctly formatted.
+- Run the script to process and categorize tweets, then save the results to `limpeza_june.json`.
 
 **How to Run:**
 ```bash
@@ -76,9 +77,7 @@ python -m venv venv
 source venv/bin/activate  # On Windows use `venv\Scripts\activate`
 ```
 
-- Run the script to process and categorize tweets, then save the results to `limpeza_june.json`.
-
-**How to Run:**
+2. Install the dependencies:
 ```bash
-python ./data_clean/processing.py
-
+pip install -r requirements.txt
+```
