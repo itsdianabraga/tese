@@ -96,7 +96,7 @@ def is_link_active(link):
         return False
 
 # Load and process JSON data
-with open('C:/Users/diana/PycharmProjects/thesis/data_clean/clean_june.json', 'r', encoding='utf-8') as file:
+with open('C:/Users/diana/PycharmProjects/thesis/data_clean/processados_june.json', 'r', encoding='utf-8') as file:
     data = json.load(file)
 
 research_links = []
