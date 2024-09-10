@@ -13,24 +13,17 @@ from nltk.stem import PorterStemmer, WordNetLemmatizer
 from nltk.sentiment import SentimentIntensityAnalyzer
 from spacy.lang.en.stop_words import STOP_WORDS
 
+# Constants
+API_KEY = 'AIzaSyBRh6hjazHm2lLbjwnq2imcQh61jtEb3J0'
+REGX_USERNAME = r"@[A-Za-z0-9$-_@.&+]+"
+REGX_URL = r"https?://[A-Za-z0-9./]+"
+
 # Initialize NLP tools
 nlp = spacy.blank("en")
 ps = PorterStemmer()
 wn = WordNetLemmatizer()
 translator = Translator()
 sia = SentimentIntensityAnalyzer()
-
-# Constants and regex patterns
-REGX_USERNAME = r"@[A-Za-z0-9$-_@.&+]+"
-REGX_URL = r"https?://[A-Za-z0-9./]+"
-API_KEY = 'AIzaSyBRh6hjazHm2lLbjwnq2imcQh61jtEb3J0'
-
-# Load tweets data
-with open('C:/Users/diana/PycharmProjects/thesis/tweets_june.json', encoding='utf-8') as doc:
-    db = json.load(doc)
-
-# Initialize the processed tweets dictionary
-db1 = {}
 
 # Custom exception for translation errors
 class TranslationError(Exception):
@@ -62,10 +55,8 @@ def get_country_from_coords(lat, lng):
             return component['long_name']
     return None
 
-# Start processing tweets
-start_time = time.time()
-for v, (key, value) in enumerate(db.items()):
-    print(v)
+def process_tweet(key, value):
+    """Process individual tweet and extract required information."""
     try:
         result = value["result"]
         
@@ -135,7 +126,7 @@ for v, (key, value) in enumerate(db.items()):
                 country = None
 
         # Compile processed data
-        db1[key] = {
+        return {
             "id_tweet": value["id_tweet"],
             "query": value["query"],
             "result": result,
@@ -169,11 +160,30 @@ for v, (key, value) in enumerate(db.items()):
         }
     except Exception as e:
         print(f"Error processing tweet {key}: {e}")
+        return None
 
-# Measure and print processing time
-end_time = time.time()
-print(f"Processing completed in {end_time - start_time:.2f} seconds")
+def main():
+    # Load tweets data
+    with open('C:/Users/diana/PycharmProjects/thesis/tweets_june.json', encoding='utf-8') as doc:
+        db = json.load(doc)
 
-# Save processed tweets to a file
-with open("clean_tweets_june.json", "w", encoding='utf-8') as file:
-    json.dump(db1, file, indent=4, ensure_ascii=False)
+    # Initialize the processed tweets dictionary
+    db1 = {}
+
+    # Start processing tweets
+    start_time = time.time()
+    for v, (key, value) in enumerate(db.items()):
+        print(f"Processing tweet {v}...")
+        processed_data = process_tweet(key, value)
+        if processed_data:
+            db1[key] = processed_data
+
+    # Measure and print processing time
+    end_time = time.time()
+
+    # Save processed tweets to a file
+    with open("clean_tweets_june.json", "w", encoding='utf-8') as file:
+        json.dump(db1, file, indent=4, ensure_ascii=False)
+
+if __name__ == "__main__":
+    main()
