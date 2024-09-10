@@ -24,3 +24,24 @@ This project involves a series of scripts designed to extract, pre-process, and 
 **How to Run:**
 ```bash
 python tweets_extraction.py
+```
+
+### 2. `pre-processing.py`
+
+**Purpose:**  
+This script processes the extracted tweets to clean and enrich the data. It performs tasks such as translation, text cleaning, sentiment analysis, and natural language processing (NLP).
+
+**Key Features:**
+- **Translation:** Translates tweets to Portuguese if they are not already in that language.
+- **Text Cleaning:** Removes URLs, mentions, hashtags, and performs text normalization.
+- **NLP Processing:** Applies tokenization, lemmatization, and stemming.
+- **Location Processing:** Retrieves and processes location information using the Google Maps API.
+
+**Usage:**
+- Ensure the `tweets_june.json` file is available and correctly formatted.
+- Run the script to process tweets and save the cleaned data to `clean_tweets_june.json`.
+
+**How to Run:**
+```bash
+python pre-processing.py
+
