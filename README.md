@@ -61,16 +61,21 @@ This script further processes the cleaned tweets by performing keyword matching,
 **Usage:**
 - Ensure the `clean_tweets_june.json` file is available and correctly formatted.
 
+**How to Run:**
+```bash
+python ./data_clean/processing.py
+```
 
 ## Installation
 
 To set up the project environment, you need to install the required dependencies. You can do this using pip:
 
 1. Create a virtual environment (recommended):
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
-  ```
+```bash
+python -m venv venv
+source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+```
+
 - Run the script to process and categorize tweets, then save the results to `limpeza_june.json`.
 
 **How to Run:**
