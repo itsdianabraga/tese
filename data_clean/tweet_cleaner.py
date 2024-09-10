@@ -23,7 +23,6 @@ nlp = spacy.blank("en")
 ps = PorterStemmer()
 wn = WordNetLemmatizer()
 translator = Translator()
-sia = SentimentIntensityAnalyzer()
 
 # Custom exception for translation errors
 class TranslationError(Exception):
