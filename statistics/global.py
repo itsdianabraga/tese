@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 from geopy.geocoders import Nominatim
 
 # Load the JSON file containing tweets data
-with open('C:/Users/diana/PycharmProjects/thesis/data_clean/clean_june.json', 'r', encoding='utf-8') as file:
+with open('C:/Users/diana/PycharmProjects/thesis/data_clean/processados_june.json', 'r', encoding='utf-8') as file:
     data = json.load(file)
 
 # Initialize variables for overall statistics
