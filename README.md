@@ -185,3 +185,39 @@ This script processes and analyzes links from tweet data. It retrieves relevant 
 ```bash
 python ./statistics/links.py
 ```
+
+### 7. `mongo_db.py`
+
+**Purpose:**  
+This script is used to interact with a MongoDB Atlas cluster, managing the insertion and deletion of data in specific collections. It loads pre-processed statistics and general information from JSON files, deletes any existing documents in the target collections, and inserts new data.
+
+**Key Features:**
+- **MongoDB Connection:** Connects to a MongoDB Atlas cluster using a connection string.
+- **Document Deletion:** Clears all existing documents from the specified collections before inserting new ones.
+- **Data Insertion:** Reads data from JSON files and inserts it into the corresponding MongoDB collections.
+- **Multiple Collections:** Handles three collections:
+  1. `statistics`: Contains statistical data related to categorized tweet analysis.
+  2. `statistics_general`: Contains aggregated statistics for overall tweet analysis.
+  3. `links`: Stores important links derived from tweet data analysis.
+
+**Script Details:**
+- **MongoDB Client:** Uses `pymongo.MongoClient` to connect to MongoDB Atlas.
+- **JSON Loading:** Loads data from the local file system and inserts it into MongoDB.
+- **File Paths:** Ensure that the correct paths to the JSON files are set for:
+  - `statistics_each_new.json`
+  - `statistics_new.json`
+  - `links.json`
+
+**Usage:**
+1. **MongoDB Setup:**
+   - Ensure you have a MongoDB Atlas account, and replace the connection string in the script with your credentials if necessary.
+   - Create the database (`socialistening`) and collections (`statistics`, `statistics_general`, `links`) in MongoDB if they do not already exist.
+
+2. **Running the Script:**
+   - Ensure the three JSON files (`statistics_each_new.json`, `statistics_new.json`, `links.json`) are correctly formatted and located at the paths specified in the script.
+   - Run the script to delete old records and insert new data into MongoDB.
+
+```bash
+python ./database/mongo_db.py
+
+```
